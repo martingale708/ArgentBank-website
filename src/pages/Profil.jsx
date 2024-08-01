@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { userProfile } from '../redux/useraction.jsx';
+import { getUserProfile } from "../redux/userSlice.js";
 import User from '../components/User.jsx';
 import Account from "../../src/components/Account.jsx";
  import AccountCardData from "../data/AccountCardData.json";
@@ -38,7 +38,7 @@ function UserProfile () {
                             username: data.body.userName
                         }
                         /* Return user data in redux state */
-                        dispatch(userProfile(userData));
+                        dispatch(getUserProfile(userData));
                     } else {
                         console.log("error while retrieving profile");
                     }

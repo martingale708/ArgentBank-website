@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loginFailed, loginSuccess } from "../redux/authactions.jsx";
-import { isValidEmail, isValidPassword } from "../redux/regex.jsx";
+import { loginFailed, loginSuccess } from "../redux/authSlice.js";
+import { isValidEmail, isValidPassword } from "../redux/regex.js";
 import '../sass/form.scss';
 
 function Form () {

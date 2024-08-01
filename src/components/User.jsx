@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUsername } from '../redux/useraction.jsx';
-import { isValidName } from "../redux/regex.jsx";
+import { editUsername } from "../redux/userSlice.js";
+import { isValidName } from "../redux/regex.js";
 import "../sass/user.scss";
 
 function User () {
@@ -42,7 +42,7 @@ function User () {
                     Checking that the query response is indeed retrieved
                     console.log(data) 
                 */
-                dispatch(updateUsername(username));
+                dispatch(editUsername(username));
                 setDisplay(!display);
             } else {
                 console.log("Invalid Fields")
