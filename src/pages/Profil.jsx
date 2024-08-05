@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getUserProfile } from "../redux/userSlice.js";
 import User from '../components/User.jsx';
 import Account from "../../src/components/Account.jsx";
- import AccountCardData from "../data/AccountCardData.json";
+import AccountCardData from "../data/AccountCardData.json";
 
 /* User profile page */
-function UserProfile () {
-    const token = useSelector((state) => state.auth.token);
+function UserProfile() {
+    const token = useSelector((state) => state.auth.token) || sessionStorage.getItem('token') || localStorage.getItem('token');
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     /* Asynchronous function that retrieves user data and updates it with useEffect */
     useEffect(() => {
@@ -47,14 +49,16 @@ function UserProfile () {
                 };
             };
             userData();
+        } else {
+            navigate('/login');  // Redirige vers la page de connexion si le token n'est pas présent
         }
-    }, [dispatch, token]);
+    }, [dispatch, token, navigate]);
 
     return (
         <div className='profile-page'>
             <main className='bg-dark'>
-                {/* Return user componant */}
-                < User />
+                {/* Return user component */}
+                <User />
                 {/* Return items from json file with map */}
                 {AccountCardData.map((data) => (
                     /* Return account component */
@@ -70,4 +74,4 @@ function UserProfile () {
     )
 }
 
-export default UserProfile
+export default UserProfile;

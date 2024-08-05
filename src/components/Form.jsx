@@ -45,9 +45,12 @@ function Form () {
                 const token = data.body.token;
                 dispatch(loginSuccess(token));
                 sessionStorage.setItem("token", token);
-                if (rememberMe) {
-                    localStorage.setItem("token", token);
-                }
+               // Stocker le token dans sessionStorage ou localStorage en fonction de "remember me"
+               if (rememberMe) {
+                localStorage.setItem("token", token);
+            } else {
+                sessionStorage.setItem("token", token);
+            }
                 navigate('/profile');
             } else {
                 const error = "Incorrect email/password"
