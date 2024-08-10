@@ -1,9 +1,9 @@
 import React from 'react';
 import Banner from "../components/Banner.jsx";
 import FeatureItem from "../components/FeatureItem.jsx";
- import chatIcon from "../img/icon-chat.png";
- import moneyIcon from "../img/icon-money.png";
- import securityIcon from "../img/icon-security.png";
+ import chatIcon from "../img/icon-chat.webp"
+ import moneyIcon from "../img/icon-money.webp";
+ import securityIcon from "../img/icon-security.webp";
 import "../../src/sass/home.scss";
 
 /* Home page */
