@@ -37,6 +37,7 @@ function User () {
             });
             if (response.ok) {
                 const data = await response.json();
+                console.log("dataput",data)
                 const username = data.body.userName;
                 /* 
                     Checking that the query response is indeed retrieved

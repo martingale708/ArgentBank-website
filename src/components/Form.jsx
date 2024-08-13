@@ -38,6 +38,7 @@ function Form () {
             });
             if (response.ok) {
                 const data = await response.json();
+                console.log("result",data)
                 /* 
                     Checking that the query response is indeed retrieved
                     console.log(data) 
